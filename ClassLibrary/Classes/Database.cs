@@ -53,7 +53,7 @@ namespace Classes
 
                 OleDbCommand cmd = new OleDbCommand();
                 cmd.Connection = connection;
-                cmd.CommandText = "SELECT * FROM DBS2_PERSOON WHERE ID IN( SELECT ID FROM DBS2_LID)";
+                cmd.CommandText = "SELECT * FROM DBS2_PERSOON WHERE ID IN(SELECT ID FROM DBS2_LID)";
                 //cmd.Parameters.Add(new OleDbParameter("?", username));
 
                 OleDbDataReader dr = cmd.ExecuteReader();
