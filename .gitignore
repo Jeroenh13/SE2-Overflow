@@ -2,3 +2,8 @@
 *.pdb
 *.cache
 *.pdb
+*.dll
+*.dll
+*.pdb
+*.txt
+*.cache

@@ -12,7 +12,9 @@ namespace Ontwikkelopdracht
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            Database.GetLeden();
+            //Database.GetLeden();
+            GridView2.DataSource = Database.GetLeden();
+            GridView2.DataBind();
         }
     }
 }

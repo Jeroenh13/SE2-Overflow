@@ -61,8 +61,10 @@ namespace Classes
                 while (dr.Read())
                 {
                     Persoon p = new Persoon();
-                    p.Wijzig(Convert.ToInt32(dr[0]), dr[1].ToString(), Convert.ToDateTime(dr[6]), dr[5].ToString(),
-                        Convert.ToChar(dr[7]));
+                    p.Wijzig(Convert.ToInt32(dr[0]), dr[1].ToString(), Convert.ToDateTime(dr[5]),dr[4].ToString(), Convert.ToChar(dr[6]));
+
+                    //p.Wijzig(Convert.ToInt32(dr[0]), dr[1].ToString(), Convert.ToDateTime(dr[6]), dr[5].ToString(),
+                    //    Convert.ToChar(dr[7]));
                     LedenLijst.Add(p);
                 }
             }
