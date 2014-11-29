@@ -1,0 +1,8 @@
+E:\Github\SE2-Overflow\Ontwikkelopdracht\Ontwikkelopdracht\obj\Debug\Ontwikkelopdracht.csprojResolveAssemblyReference.cache
+E:\Github\SE2-Overflow\Ontwikkelopdracht\Ontwikkelopdracht\bin\Ontwikkelopdracht.dll.config
+E:\Github\SE2-Overflow\Ontwikkelopdracht\Ontwikkelopdracht\bin\Ontwikkelopdracht.dll
+E:\Github\SE2-Overflow\Ontwikkelopdracht\Ontwikkelopdracht\bin\Ontwikkelopdracht.pdb
+E:\Github\SE2-Overflow\Ontwikkelopdracht\Ontwikkelopdracht\bin\Classes.dll
+E:\Github\SE2-Overflow\Ontwikkelopdracht\Ontwikkelopdracht\bin\Classes.pdb
+E:\Github\SE2-Overflow\Ontwikkelopdracht\Ontwikkelopdracht\obj\Debug\Ontwikkelopdracht.dll
+E:\Github\SE2-Overflow\Ontwikkelopdracht\Ontwikkelopdracht\obj\Debug\Ontwikkelopdracht.pdb

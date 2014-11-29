@@ -1,0 +1,130 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Classes.Persoon">
+    <Position X="0.5" Y="0.5" Width="2" />
+    <Compartments>
+      <Compartment Name="Properties" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAAAAAgAQAAAAAhAAAAIQAiAAAAIgQAAABEAA=</HashCode>
+      <FileName>Persoon.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Classes.Bestuur">
+    <Position X="3" Y="0.5" Width="2.5" />
+    <Compartments>
+      <Compartment Name="Properties" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>gAAAAIAAAAAAAAAACAAQAAAAEAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Bestuur.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Classes.Lid">
+    <Position X="0.5" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Lid.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Classes.Sticky_Note">
+    <Position X="4.25" Y="3.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Properties" Collapsed="true" />
+    </Compartments>
+    <AssociationLine Name="User" Type="Classes.Bestuur" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="4.75" Y="3.5" />
+        <Point X="4.75" Y="3.125" />
+        <Point X="3.812" Y="3.125" />
+        <Point X="3.812" Y="2.828" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.112" Y="0.225" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAABAAAAEAAAgBAAAAAAgAEAgAACAIAAAhAAAAAQAQA=</HashCode>
+      <FileName>Sticky_Note.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="User" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Classes.Reactie">
+    <Position X="6" Y="4.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Properties" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAABAAAAAAAAgAAAAAAAgAAAgAAAAIAAAAAAgAAAAQA=</HashCode>
+      <FileName>Reactie.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Classes.Sticky_Note_Muur">
+    <Position X="2.5" Y="4.25" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Properties" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAIAAAAAEABAAgAAQAIAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Sticky_Note_Muur.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Classes.PrijsLijst">
+    <Position X="6.75" Y="0.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Properties" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAABAAAAAAAAgAAAAAgAhBAAgAQAAgAAAAAAAAAAAQA=</HashCode>
+      <FileName>PrijsLijst.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="User" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Classes.Item">
+    <Position X="9.25" Y="0.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Properties" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>CAAAAAAIAAAAgAAAAAAAhAAgAAQAIAAACAAAAAAAAAA=</HashCode>
+      <FileName>Item.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Classes.Event">
+    <Position X="8.5" Y="3.75" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Properties" Collapsed="true" />
+    </Compartments>
+    <AssociationLine Name="User" Type="Classes.Bestuur" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="8.5" Y="5.042" />
+        <Point X="7.75" Y="5.042" />
+        <Point X="7.75" Y="4.25" />
+        <Point X="6" Y="4.25" />
+        <Point X="6" Y="3.25" />
+        <Point X="5.25" Y="3.25" />
+        <Point X="5.25" Y="2.828" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAABAAAAACAAgAAwAAAAhAAAABQAAAAAAAAAAAAAAQA=</HashCode>
+      <FileName>Event.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="User" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Classes.Database" Collapsed="true">
+    <Position X="11.75" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAEAAAAAAABAIAAAAAAAAAAACAAAACAAAA=</HashCode>
+      <FileName>Database.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
