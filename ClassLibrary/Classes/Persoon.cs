@@ -30,9 +30,17 @@ namespace Classes
             
         }
 
-        public bool Betaalstatus
+        public int GetID
         {
-            get { return betaalstatus; }
+            get { return ID; }
+            set
+            {
+            }
+        }
+
+        public string Naam
+        {
+            get { return naam; }
             set
             {
             }
@@ -62,25 +70,17 @@ namespace Classes
             }
         }
 
-        public int GetID
-        {
-            get { return ID; }
-            set
-            {
-            }
-        }
-
-        public string Naam
-        {
-            get { return naam; }
-            set
-            {
-            }
-        }
-
         public DateTime RegistratieDatum
         {
             get { return registratiedatum; }
+            set
+            {
+            }
+        }
+
+        public bool Betaalstatus
+        {
+            get { return betaalstatus; }
             set
             {
             }

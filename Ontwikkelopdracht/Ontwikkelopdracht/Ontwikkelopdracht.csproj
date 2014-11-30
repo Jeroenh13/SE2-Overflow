@@ -58,20 +58,31 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Leden.aspx" />
+    <Content Include="AddLidWebPage.aspx" />
+    <Content Include="overflow.css" />
+    <Content Include="bootstrap.css" />
+    <Content Include="Images\vector.png" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Leden.aspx.cs">
-      <DependentUpon>Leden.aspx</DependentUpon>
+    <Compile Include="AddLidWebPage.aspx.cs">
+      <DependentUpon>AddLidWebPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Leden.aspx.designer.cs">
-      <DependentUpon>Leden.aspx</DependentUpon>
+    <Compile Include="AddLidWebPage.aspx.designer.cs">
+      <DependentUpon>AddLidWebPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="MasterPage.Master.cs">
+      <DependentUpon>MasterPage.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MasterPage.Master.designer.cs">
+      <DependentUpon>MasterPage.Master</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="MasterPage.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
