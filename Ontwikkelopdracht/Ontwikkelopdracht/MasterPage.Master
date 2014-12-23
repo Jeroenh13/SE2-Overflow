@@ -25,6 +25,8 @@
             testfooter
         </div>
         <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server">
+            <ajaxToolkit:ToolkitScriptManager ID="ScriptManager1" runat="server">
+            </ajaxToolkit:ToolkitScriptManager>
         </asp:ContentPlaceHolder>
     </div>
     </form>

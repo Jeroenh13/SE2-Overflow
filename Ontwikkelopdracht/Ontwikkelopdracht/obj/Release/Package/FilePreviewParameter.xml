@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="IIS Web Application Name" description="" value="mmjl" tags="IisApp">
+    <parameterEntry kind="ProviderPath" scope="IisApp" match="^C:\\Github\\SE2-Overflow\\Ontwikkelopdracht\\Ontwikkelopdracht\\obj\\Release\\Package\\PackageTmp$" />
+    <parameterEntry kind="ProviderPath" scope="setAcl" match="^C:\\Github\\SE2-Overflow\\Ontwikkelopdracht\\Ontwikkelopdracht\\obj\\Release\\Package\\PackageTmp$" />
+  </parameter>
+  <parameter name="ConnectionString-Web.config Connection String" description="" value="Provider=MSDAORA;Data Source=fhictora01.fhict.local:1521/fhictora;Persist Security Info=True;Password=PTVNpoHu6L;User ID=dbi305445" tags="">
+    <parameterEntry kind="XmlFile" scope="C:\\Github\\SE2-Overflow\\Ontwikkelopdracht\\Ontwikkelopdracht\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='ConnectionString']/@connectionString" />
+  </parameter>
+</parameters>

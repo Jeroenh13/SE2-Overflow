@@ -41,11 +41,13 @@
             </td>
         </tr>
         <tr class ="inschrijfTable">
-            <td>
+            <td class="inschrijfTable">
                 <asp:Label ID="lblGeboortedatum" runat="server" Text="Geboortedatum:"></asp:Label>
             </td>
-            <td>
-                <asp:Calendar CssClass="tbCenter" ID="calGebDatum" runat="server"></asp:Calendar>
+            <td class="inschrijfTable">
+                <asp:TextBox ID="tbGeboortedatum" runat="server" CssClass="tbCenter" ></asp:TextBox>
+                <ajaxToolkit:CalendarExtender ID="CEGeboortedatum" runat="server" TargetControlID="tbGeboortedatum">
+                </ajaxToolkit:CalendarExtender>
             </td>
         </tr>
         <tr class ="inschrijfTable">
@@ -53,7 +55,9 @@
                 <asp:Label ID="lblGeregistreerd" runat="server" Text="Geregistreerd: *"></asp:Label>
             </td>
             <td>
-                <asp:Calendar CssClass="tbCenter" ID="calDatumGeregistreerd" runat="server"></asp:Calendar>
+                <asp:TextBox ID="tbGeregistreerd" runat="server" CssClass="tbCenter" ></asp:TextBox>
+                <ajaxToolkit:CalendarExtender ID="CEGeregistreerd" runat="server" TargetControlID="tbGeregistreerd" Format="dd/MM/yyyy">
+                </ajaxToolkit:CalendarExtender>
             </td>
         </tr>
     </table>

@@ -130,13 +130,22 @@ namespace Ontwikkelopdracht {
         protected global::System.Web.UI.WebControls.Label lblGeboortedatum;
         
         /// <summary>
-        /// calGebDatum control.
+        /// tbGeboortedatum control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Calendar calGebDatum;
+        protected global::System.Web.UI.WebControls.TextBox tbGeboortedatum;
+        
+        /// <summary>
+        /// CEGeboortedatum control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.CalendarExtender CEGeboortedatum;
         
         /// <summary>
         /// lblGeregistreerd control.
@@ -148,13 +157,22 @@ namespace Ontwikkelopdracht {
         protected global::System.Web.UI.WebControls.Label lblGeregistreerd;
         
         /// <summary>
-        /// calDatumGeregistreerd control.
+        /// tbGeregistreerd control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Calendar calDatumGeregistreerd;
+        protected global::System.Web.UI.WebControls.TextBox tbGeregistreerd;
+        
+        /// <summary>
+        /// CEGeregistreerd control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.CalendarExtender CEGeregistreerd;
         
         /// <summary>
         /// btnOpslaan control.
