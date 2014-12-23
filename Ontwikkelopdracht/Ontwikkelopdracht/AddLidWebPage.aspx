@@ -62,7 +62,7 @@
         </tr>
     </table>
     <div class ="opslaan">
-        <asp:Button ID="btnOpslaan" runat="server" Text="Sla Op" CssClass="SlaOpKnop"/>
+        <asp:Button ID="btnOpslaan" runat="server" Text="Sla Op" CssClass="SlaOpKnop" OnClick="btnOpslaan_Click"/>
         <asp:ValidationSummary ID="ValidationSummary1" runat="server" />
     </div>
 </asp:Content>

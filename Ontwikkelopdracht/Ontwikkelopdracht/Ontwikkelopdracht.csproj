@@ -87,6 +87,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AddLidWebPage.aspx" />
+    <Content Include="LedenWebPage.aspx" />
     <Content Include="overflow.css" />
     <Content Include="bootstrap.css" />
     <Content Include="Images\vector.png" />
@@ -99,6 +100,13 @@
     </Compile>
     <Compile Include="AddLidWebPage.aspx.designer.cs">
       <DependentUpon>AddLidWebPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="LedenWebPage.aspx.cs">
+      <DependentUpon>LedenWebPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LedenWebPage.aspx.designer.cs">
+      <DependentUpon>LedenWebPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="MasterPage.Master.cs">
