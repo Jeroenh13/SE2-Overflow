@@ -13,15 +13,6 @@ namespace Ontwikkelopdracht {
     public partial class LedenWebPage {
         
         /// <summary>
-        /// GVleden control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GVleden;
-        
-        /// <summary>
         /// rptAlphabet control.
         /// </summary>
         /// <remarks>
@@ -29,5 +20,14 @@ namespace Ontwikkelopdracht {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Repeater rptAlphabet;
+        
+        /// <summary>
+        /// GVleden control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView GVleden;
     }
 }

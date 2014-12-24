@@ -9,7 +9,7 @@ namespace Classes
     public class Database
     {
         #region DatabaseConnection
-        static OleDbConnection connection = new OleDbConnection();
+        OleDbConnection connection = new OleDbConnection();
         private string ConnectionString = "Provider=OraOLEDB.Oracle; Data Source=//fhictora01.fhict.local:1521/fhictora; User Id=dbi305445;Password=PTVNpoHu6L";
         /// <summary>
         /// Connects to the database
@@ -73,13 +73,13 @@ namespace Classes
                     {
                         LedenLijst.Add(new Persoon(Convert.ToInt32(dr[0]), dr[1].ToString(), dr[2].ToString(),
                             Convert.ToDateTime(null), Convert.ToDateTime(dr[3]), dr[4].ToString(), Convert.ToChar(dr[6]),
-                            false));
+                            getBetaald(Convert.ToInt32(dr[0]))));
                     }
                     else
                     {
                         LedenLijst.Add(new Persoon(Convert.ToInt32(dr[0]), dr[1].ToString(), dr[2].ToString(),
                             Convert.ToDateTime(dr[5]), Convert.ToDateTime(dr[3]), dr[4].ToString(),
-                            Convert.ToChar(dr[6]), false));
+                            Convert.ToChar(dr[6]), getBetaald(Convert.ToInt32(dr[0]))));
                     }
                 }
             }
@@ -87,6 +87,33 @@ namespace Classes
             { }
             finally { Close(); }
             return LedenLijst;
+        }
+
+        /// <summary>
+        /// Vraagt de betaalstatus op van een bepaalde persoon
+        /// NIET AANROEPEN!!
+        /// </summary>
+        /// <param name="pid">Persoons ID </param>
+        /// <returns>Bool betaald</returns>
+        public bool getBetaald(int pid)
+        {
+            bool isbetaald = false;
+            try
+            {
+                Connect(ConnectionString);
+                OleDbCommand cmd = new OleDbCommand();
+                cmd.Connection = connection;
+                cmd.CommandText = "SELECT ISBETAALD FROM DBS2_BETALING WHERE PERSOON_ID = " + pid;
+                OleDbDataReader dr = cmd.ExecuteReader();
+                while (dr.Read())
+                {
+                    isbetaald = Convert.ToBoolean(dr[0]);
+                }
+            }
+            catch
+            {
+            }
+            return isbetaald;   
         }
 
         public bool nieuwLid()

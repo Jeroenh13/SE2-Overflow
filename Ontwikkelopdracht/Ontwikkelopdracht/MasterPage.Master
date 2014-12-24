@@ -15,7 +15,9 @@
         <ajaxToolkit:ToolkitScriptManager ID="ScriptManager1" runat="server">
             </ajaxToolkit:ToolkitScriptManager>
     <div class="wrapper">
-        <img class="img" src="Images/vector.png"/>
+        <a href="HomePage.aspx">
+            <img class="img" src="Images/vector.png" />
+        </a>
         <div class="header">
             Overflow
         </div>
@@ -24,10 +26,8 @@
         </asp:ContentPlaceHolder>
         </div>
         <div class="footer">
-            testfooter
+            Overflow - Jeroen Hendriks
         </div>
-        <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server">
-        </asp:ContentPlaceHolder>
     </div>
     </form>
 </body>

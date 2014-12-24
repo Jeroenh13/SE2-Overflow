@@ -13,5 +13,25 @@ namespace Ontwikkelopdracht
         {
 
         }
+
+        protected void btnLedenInfo_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnNieuwLid_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnPrijsLijst_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnEvent_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
