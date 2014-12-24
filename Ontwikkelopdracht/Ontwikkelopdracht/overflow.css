@@ -44,3 +44,25 @@
 .SlaOpKnop {
     bottom: 0;
 }
+
+.LedenGrid {
+    border: 1px solid #A1DCF2;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    border-radius: 8px;
+    overflow: hidden;
+}
+.LedenGrid td, .LedenGrid th {
+    padding-bottom: 5px;
+    padding-top: 5px;
+    padding-left: 15px;
+    padding-right: 15px;
+    border: 1px solid #A1DCF2;
+    font-family: Arial;
+    font-size: 10pt;
+    text-align: center;
+}
+.LedenGrid table table td {
+    border-style: none;
+    
+}

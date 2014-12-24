@@ -1,5 +1,5 @@
 E:\Github\SE2-Overflow\ClassLibrary\Classes\bin\Debug\Classes.dll
 E:\Github\SE2-Overflow\ClassLibrary\Classes\bin\Debug\Classes.pdb
-E:\Github\SE2-Overflow\ClassLibrary\Classes\obj\Debug\Classes.csprojResolveAssemblyReference.cache
 E:\Github\SE2-Overflow\ClassLibrary\Classes\obj\Debug\Classes.dll
 E:\Github\SE2-Overflow\ClassLibrary\Classes\obj\Debug\Classes.pdb
+E:\Github\SE2-Overflow\ClassLibrary\Classes\obj\Debug\Classes.csprojResolveAssemblyReference.cache

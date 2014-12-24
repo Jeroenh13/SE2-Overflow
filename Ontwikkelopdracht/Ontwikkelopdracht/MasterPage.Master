@@ -12,6 +12,8 @@
 </head>
 <body>
     <form id="MasterPage" runat="server">
+        <ajaxToolkit:ToolkitScriptManager ID="ScriptManager1" runat="server">
+            </ajaxToolkit:ToolkitScriptManager>
     <div class="wrapper">
         <img class="img" src="Images/vector.png"/>
         <div class="header">
@@ -25,8 +27,6 @@
             testfooter
         </div>
         <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server">
-            <ajaxToolkit:ToolkitScriptManager ID="ScriptManager1" runat="server">
-            </ajaxToolkit:ToolkitScriptManager>
         </asp:ContentPlaceHolder>
     </div>
     </form>

@@ -87,6 +87,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AddLidWebPage.aspx" />
+    <Content Include="GameGridForm.aspx" />
+    <Content Include="HomePage.aspx" />
     <Content Include="LedenWebPage.aspx" />
     <Content Include="overflow.css" />
     <Content Include="bootstrap.css" />
@@ -100,6 +102,13 @@
     </Compile>
     <Compile Include="AddLidWebPage.aspx.designer.cs">
       <DependentUpon>AddLidWebPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HomePage.aspx.cs">
+      <DependentUpon>HomePage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HomePage.aspx.designer.cs">
+      <DependentUpon>HomePage.aspx</DependentUpon>
     </Compile>
     <Compile Include="LedenWebPage.aspx.cs">
       <DependentUpon>LedenWebPage.aspx</DependentUpon>

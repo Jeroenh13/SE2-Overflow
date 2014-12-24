@@ -10,11 +10,11 @@ namespace Classes
     {
         #region DatabaseConnection
         static OleDbConnection connection = new OleDbConnection();
-        private static string ConnectionString = "Provider=OraOLEDB.Oracle; Data Source=//fhictora01.fhict.local:1521/fhictora; User Id=dbi305445;Password=PTVNpoHu6L";
+        private string ConnectionString = "Provider=OraOLEDB.Oracle; Data Source=//fhictora01.fhict.local:1521/fhictora; User Id=dbi305445;Password=PTVNpoHu6L";
         /// <summary>
         /// Connects to the database
         /// </summary>       
-        public static void Connect(string connectstring)
+        public void Connect(string connectstring)
         {
             if (connection.State != System.Data.ConnectionState.Open)
             {
@@ -34,7 +34,7 @@ namespace Classes
         /// <summary>
         /// Close the connection with the database
         /// </summary>
-        public static void Close()
+        public void Close()
         {
             if (connection.State == System.Data.ConnectionState.Open)
             {
@@ -44,7 +44,7 @@ namespace Classes
         }
         #endregion;    
 
-        public static List<Persoon> GetLeden()
+        public List<Persoon> GetLeden(string alph)
         {
             List<Persoon> LedenLijst = new List<Persoon>();
             try
@@ -53,25 +53,57 @@ namespace Classes
 
                 OleDbCommand cmd = new OleDbCommand();
                 cmd.Connection = connection;
-                cmd.CommandText = "SELECT * FROM DBS2_PERSOON WHERE ID IN(SELECT ID FROM DBS2_LID)";
-                //cmd.Parameters.Add(new OleDbParameter("?", username));
+                if (alph == "ALL")
+                {
+                    cmd.CommandText =
+                           "SELECT * FROM DBS2_PERSOON WHERE ID IN(SELECT ID FROM DBS2_LID)";
+
+                }
+                else
+                {
+                    cmd.CommandText =
+                        "SELECT * FROM DBS2_PERSOON WHERE ID IN(SELECT ID FROM DBS2_LID) AND UPPER(NAAM) LIKE '" + alph + "%'";
+                }
 
                 OleDbDataReader dr = cmd.ExecuteReader();
 
                 while (dr.Read())
                 {
-                    Persoon p = new Persoon();
-                    p.Wijzig(Convert.ToInt32(dr[0]), dr[1].ToString(), Convert.ToDateTime(dr[5]),dr[4].ToString(), Convert.ToChar(dr[6]));
-
-                    //p.Wijzig(Convert.ToInt32(dr[0]), dr[1].ToString(), Convert.ToDateTime(dr[6]), dr[5].ToString(),
-                    //    Convert.ToChar(dr[7]));
-                    LedenLijst.Add(p);
+                    if (dr[5] == DBNull.Value)
+                    {
+                        LedenLijst.Add(new Persoon(Convert.ToInt32(dr[0]), dr[1].ToString(), dr[2].ToString(),
+                            Convert.ToDateTime(null), Convert.ToDateTime(dr[3]), dr[4].ToString(), Convert.ToChar(dr[6]),
+                            false));
+                    }
+                    else
+                    {
+                        LedenLijst.Add(new Persoon(Convert.ToInt32(dr[0]), dr[1].ToString(), dr[2].ToString(),
+                            Convert.ToDateTime(dr[5]), Convert.ToDateTime(dr[3]), dr[4].ToString(),
+                            Convert.ToChar(dr[6]), false));
+                    }
                 }
             }
             catch
             { }
             finally { Close(); }
             return LedenLijst;
+        }
+
+        public bool nieuwLid()
+        {
+            bool done;
+            try
+            {
+                done = true;
+            }
+            catch
+            {
+                done = false;
+            }
+            finally
+            {Close();}
+
+            return done;
         }
     }
 
