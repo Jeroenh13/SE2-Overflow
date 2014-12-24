@@ -11,14 +11,12 @@ namespace Ontwikkelopdracht
 {
     public partial class LedenWebPage : System.Web.UI.Page
     {
-        private Database db;
         string[] alphabet = { "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K",
                      "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V",
                      "W", "X", "Y", "Z", "ALL"};
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            db = new Database();
             if (!IsPostBack)
             {
                 Session["SelectedAlphabet"] = "ALL";
@@ -30,7 +28,7 @@ namespace Ontwikkelopdracht
 
         private void bindGridview()
         {
-            GVleden.DataSource = db.GetLeden((string)Session["SelectedAlphabet"]);
+            GVleden.DataSource = Database.GetLeden((string)Session["SelectedAlphabet"]);
             GVleden.DataBind();
         }
 

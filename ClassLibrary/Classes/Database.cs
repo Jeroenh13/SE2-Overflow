@@ -10,11 +10,11 @@ namespace Classes
     {
         #region DatabaseConnection
         static OleDbConnection connection = new OleDbConnection();
-        private string ConnectionString = "Provider=OraOLEDB.Oracle; Data Source=//fhictora01.fhict.local:1521/fhictora; User Id=dbi305445;Password=PTVNpoHu6L";
+        private static string ConnectionString = "Provider=OraOLEDB.Oracle; Data Source=//fhictora01.fhict.local:1521/fhictora; User Id=dbi305445;Password=PTVNpoHu6L";
         /// <summary>
         /// Connects to the database
         /// </summary>       
-        public void Connect(string connectstring)
+        public static void Connect(string connectstring)
         {
             if (connection.State != System.Data.ConnectionState.Open)
             {
@@ -34,7 +34,7 @@ namespace Classes
         /// <summary>
         /// Close the connection with the database
         /// </summary>
-        public void Close()
+        public static void Close()
         {
             if (connection.State == System.Data.ConnectionState.Open)
             {
@@ -44,7 +44,7 @@ namespace Classes
         }
         #endregion;    
 
-        public List<Persoon> GetLeden(string alph)
+        public static List<Persoon> GetLeden(string alph)
         {
             List<Persoon> LedenLijst = new List<Persoon>();
             try
@@ -89,7 +89,7 @@ namespace Classes
             return LedenLijst;
         }
 
-        public bool nieuwLid()
+        public static bool nieuwLid()
         {
             bool done;
             try
