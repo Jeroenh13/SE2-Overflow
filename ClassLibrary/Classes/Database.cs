@@ -44,6 +44,32 @@ namespace Classes
         }
         #endregion;    
 
+        public Bestuur login(string user, string password)
+        {
+            Bestuur b = null;
+            try
+            {
+                Connect(ConnectionString);
+                OleDbCommand cmd = new OleDbCommand();
+                cmd.Connection = connection;
+                cmd.CommandText =
+                    "SELECT * FROM DBS2_PERSOON p, DBS2_BESTUURSLID b WHERE p.ID IN(SELECT ID FROM DBS2_BESTUURSLID) AND p.ID = b.ID AND p.Naam = '" + user + "' AND b.WACHTWOORD = '" + password + "'";
+                OleDbDataReader dr = cmd.ExecuteReader();
+                while (dr.Read())
+                {
+                    b = new Bestuur(Convert.ToInt32(dr[0]), dr[9].ToString(), dr[10].ToString(),
+                        dr[1].ToString(), dr[2].ToString(), Convert.ToDateTime(dr[5]), Convert.ToDateTime(dr[3]),
+                        dr[4].ToString(), Convert.ToChar(dr[6]), getBetaald(Convert.ToInt32(dr[0])));
+                }
+            }
+            catch
+            {
+            }
+            finally
+            {Close();}
+            return b;
+        }
+
         public List<Persoon> GetLeden(string alph)
         {
             List<Persoon> LedenLijst = new List<Persoon>();
@@ -214,6 +240,79 @@ namespace Classes
             { }
             finally { Close(); }
             return reacties;
+        }
+
+        public bool AddStickyNote(string titel, string bericht, int bid, DateTime datum)
+        {
+            bool done = false;
+            int ID = 0;
+            try
+            {
+                Connect(ConnectionString);
+
+                OleDbCommand cmd = new OleDbCommand();
+                OleDbCommand cmdselect = new OleDbCommand();
+                cmdselect.Connection = connection;
+                cmd.Connection = connection;
+                cmdselect.CommandText = "SELECT MAX(ID) FROM DBS2_STICKY_NOTE";
+                
+                OleDbDataReader dr = cmdselect.ExecuteReader();
+
+                while (dr.Read())
+                {
+                    ID = Convert.ToInt32(dr[0]);
+                    ID++;
+                }
+                cmd.CommandText = "INSERT INTO DBS2_STICKY_NOTE(TITEL, BERICHT, BESTUURSLID_ID, DATUM, ID) VALUES('" + titel + "','" + bericht + "'," + bid + "," + "TO_DATE('" + datum + "','dd/mm/yyyy hh24:mi:ss')" + "," + ID + ")";
+                cmd.ExecuteNonQuery();
+                done = true;
+            }
+            catch
+            {
+                done = false;
+            }
+            finally { Close(); }
+            return done;
+        }
+
+        public bool AddReactie(int parentid, int snid, string bericht, int bid, DateTime datum)
+        {
+            bool done = false;
+            int ID = 0;
+            try
+            {
+                Connect(ConnectionString);
+
+                OleDbCommand cmd = new OleDbCommand();
+                OleDbCommand cmdselect = new OleDbCommand();
+                cmdselect.Connection = connection;
+                cmd.Connection = connection;
+                cmdselect.CommandText = "SELECT MAX(ID) FROM DBS2_REACTIE";
+
+                OleDbDataReader dr = cmdselect.ExecuteReader();
+
+                while (dr.Read())
+                {
+                    ID = Convert.ToInt32(dr[0]);
+                    ID++;
+                }
+                if (parentid == 0)
+                {
+                    cmd.CommandText = "INSERT INTO DBS2_REACTIE(ID, STICKY_NOTE_ID, BESTUURSLID_ID, DATUM, BERICHT) VALUES(" + ID + "," + snid + "," + bid + "," + "TO_DATE('" + datum + "','dd/mm/yyyy hh24:mi:ss')" + ",'" + bericht + "')";
+                }
+                else
+                {
+                    cmd.CommandText = "INSERT INTO DBS2_REACTIE(ID, PARENT_ID, STICKY_NOTE_ID, BESTUURSLID_ID, DATUM, BERICHT) VALUES(" + ID + "," + parentid + "," + snid + "," + bid + "," + "TO_DATE('" + datum + "','dd/mm/yyyy hh24:mi:ss')" + ",'" + bericht + "')";
+                }
+                cmd.ExecuteNonQuery();
+                done = true;
+            }
+            catch
+            {
+                done = false;
+            }
+            finally { Close(); }
+            return done;
         }
     }
 }

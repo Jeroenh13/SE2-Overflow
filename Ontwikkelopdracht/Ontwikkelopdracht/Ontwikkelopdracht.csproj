@@ -89,6 +89,7 @@
     <Content Include="AddLidWebPage.aspx" />
     <Content Include="GameGridForm.aspx" />
     <Content Include="HomePage.aspx" />
+    <Content Include="InlogForm.aspx" />
     <Content Include="LedenWebPage.aspx" />
     <Content Include="overflow.css" />
     <Content Include="bootstrap.css" />
@@ -111,6 +112,13 @@
     </Compile>
     <Compile Include="HomePage.aspx.designer.cs">
       <DependentUpon>HomePage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="InlogForm.aspx.cs">
+      <DependentUpon>InlogForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="InlogForm.aspx.designer.cs">
+      <DependentUpon>InlogForm.aspx</DependentUpon>
     </Compile>
     <Compile Include="LedenWebPage.aspx.cs">
       <DependentUpon>LedenWebPage.aspx</DependentUpon>

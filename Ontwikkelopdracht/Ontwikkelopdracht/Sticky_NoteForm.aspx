@@ -34,4 +34,15 @@
                 </asp:ListView>
         </ItemTemplate>
     </asp:ListView>
+    <table style="float:left;">
+         <tr class ="inschrijfTable">
+            <td>
+                Bericht:
+            </td>
+            <td>
+                <asp:TextBox runat="server" ID="tbBericht" TextMode="MultiLine" Height="94px" Width="298px"></asp:TextBox>
+                <asp:Button runat="server" ID="AddReactie" OnClick="AddReactie_Click" Text="Post"/>
+             </td>
+          </tr>
+    </table>
 </asp:Content>

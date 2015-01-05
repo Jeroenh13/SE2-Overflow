@@ -6,6 +6,36 @@
     <div class ="updatePanel">
         <asp:UpdatePanel ID="UpdatePanel1" runat="server">
             <ContentTemplate >
+                <asp:Button runat="server" ID ="NieuweStickyNote" OnClick="NieuweStickyNote_Click" Text="Nieuwe Sticky Note"/>
+                <div id="sn" runat="server">
+                         <table style="float:left;">
+                            <tr class ="inschrijfTable">
+                                <td>
+                                    Titel: 
+                                </td>
+                                <td>
+                                    <asp:TextBox runat="server" ID="tbTitel"></asp:TextBox>
+                                </td>
+                            </tr>
+                             <tr class ="inschrijfTable">
+                                <td>
+                                    Bericht:
+                                </td>
+                                <td>
+                                    <asp:TextBox runat="server" ID="tbBericht" TextMode="MultiLine"></asp:TextBox>
+                                    <asp:Button runat="server" ID="AddNewStickyNote" OnClick="AddNewStickyNote_Click" Text="Post"/>
+                                </td>
+                            </tr>
+                        </table>
+                         <br />
+                         <br />
+                         <br />
+                         <br />
+                         <br />
+                         <br />
+                         <br />
+                </div>
+
                 <div style="overflow:scroll;height:50%;" runat="server">
                     <asp:ListView ID="lvStickynotes" runat="server" OnItemDataBound="lvStickynotes_OnItemDataBound" OnItemCommand="lvStickynotes_OnItemCommand">
                         <ItemTemplate>
@@ -15,7 +45,7 @@
                                 Datum: <%# Eval("Datum","{0:d/M/yyyy}") %> <br />
                                 Naam: <%# Eval("Bestuur.Naam") %> <br/>
                                 Bericht: <%# Eval("Bericht") %> <br/>
-                                <asp:Button ID="btnToSticky_Note" runat="server" Text="Button" CommandName="Select" CommandArgument='<%# Eval("GetID") %>' />
+                                <asp:Button cssClass="snbutton" ID="btnToSticky_Note" runat="server" Text="Button" CommandName="Select" CommandArgument='<%# Eval("GetID") %>' />
                             </div>
                         </ItemTemplate>
                     </asp:ListView>

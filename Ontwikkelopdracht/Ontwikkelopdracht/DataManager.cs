@@ -10,6 +10,23 @@ namespace Ontwikkelopdracht
     {
         private Database db = new Database();
 
+        public Bestuur Login(string U, string P)
+        {
+            Bestuur b;
+            b = db.login(U, P);
+            return b;
+        }
+
+        public void NieuweStickyNote(string titel, string bericht, Bestuur b, DateTime datum)
+        {
+            db.AddStickyNote(titel, bericht, b.GetID, datum);
+        }
+
+        public void NieuweReactie(Sticky_Note sn, string bericht, Bestuur b, DateTime datum)
+        {
+            db.AddReactie(0,sn.GetID,bericht,b.GetID,datum);
+        }
+
         public List<Persoon> GetLeden(string alph)
         {
             return db.GetLeden(alph);

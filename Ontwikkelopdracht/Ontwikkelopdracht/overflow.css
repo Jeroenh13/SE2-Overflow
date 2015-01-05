@@ -1,6 +1,5 @@
 .header {
     width: 100%;
-    position: fixed;
     text-align: center;
 }
 
@@ -118,4 +117,8 @@
     margin: 2em 0px;
     margin-left: 2em;
     padding: 1em 1em;
+}
+
+.snbutton{
+    float:right;
 }

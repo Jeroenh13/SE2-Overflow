@@ -10,42 +10,42 @@
 namespace Ontwikkelopdracht {
     
     
-    public partial class Sticky_NoteForm1 {
+    public partial class InlogForm {
         
         /// <summary>
-        /// stickynote control.
+        /// lblError control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListView stickynote;
+        protected global::System.Web.UI.WebControls.Label lblError;
         
         /// <summary>
-        /// lvReacties control.
+        /// tbUserName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListView lvReacties;
+        protected global::System.Web.UI.WebControls.TextBox tbUserName;
         
         /// <summary>
-        /// tbBericht control.
+        /// tbPassword control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tbBericht;
+        protected global::System.Web.UI.WebControls.TextBox tbPassword;
         
         /// <summary>
-        /// AddReactie control.
+        /// btnLogin control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button AddReactie;
+        protected global::System.Web.UI.WebControls.Button btnLogin;
     }
 }

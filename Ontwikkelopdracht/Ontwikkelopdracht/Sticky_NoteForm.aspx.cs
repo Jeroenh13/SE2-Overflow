@@ -10,21 +10,20 @@ namespace Ontwikkelopdracht
 {
     public partial class Sticky_NoteForm1 : System.Web.UI.Page
     {
-        private List<Sticky_Note> sn = new List<Sticky_Note>();
+        DataManager dm = new DataManager();
+        private List<Sticky_Note> sn;
         List<Reactie> parents = new List<Reactie>();
         List<Reactie> childs = new List<Reactie>();
         private bool refresh = false;
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
+            sn = new List<Sticky_Note>();
+            if (Session["STICKY_NOTE"] == null)
             {
-                if (Session["STICKY_NOTE"] == null)
-                {
-                }
-                sn.Add((Sticky_Note)Session["STICKY_NOTE"]);
-                BindReacties();
             }
+            sn.Add((Sticky_Note)Session["STICKY_NOTE"]);
+            BindReacties();
         }
 
         public void BindReacties()
@@ -64,6 +63,14 @@ namespace Ontwikkelopdracht
                 childview.DataBind();
                 refresh = true;
             }
+        }
+
+        protected void AddReactie_Click(object sender, EventArgs e)
+        {
+            Sticky_Note sn = (Sticky_Note)Session["STICKY_NOTE"];
+            Bestuur b = (Bestuur)Session["BESTUUR"];
+            dm.NieuweReactie(sn,tbBericht.Text,b,DateTime.Now);
+            BindReacties();
         }
     }
 }

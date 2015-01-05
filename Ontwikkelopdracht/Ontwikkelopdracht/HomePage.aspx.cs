@@ -18,15 +18,21 @@ namespace Ontwikkelopdracht
             snList = dm.GetSticky_Notes();
             if (!IsPostBack)
             {
-                snList = dm.GetSticky_Notes();
-                lvStickynotes.DataSource = snList;
-                lvStickynotes.DataBind();
+                BindData();
+                sn.Visible = false;
             }
+        }
+
+        public void BindData()
+        {
+            snList = dm.GetSticky_Notes();
+            lvStickynotes.DataSource = snList;
+            lvStickynotes.DataBind();
         }
 
         protected void btnLedenInfo_Click(object sender, EventArgs e)
         {
-
+            Response.Redirect("LedenWebPage.aspx");
         }
 
         protected void btnNieuwLid_Click(object sender, EventArgs e)
@@ -63,6 +69,18 @@ namespace Ontwikkelopdracht
                 }
                 Response.Redirect("Sticky_NoteForm.aspx");
             }
+        }
+
+        protected void NieuweStickyNote_Click(object sender, EventArgs e)
+        {
+            sn.Visible = true;
+        }
+
+        protected void AddNewStickyNote_Click(object sender, EventArgs e)
+        {
+            dm.NieuweStickyNote(tbBericht.Text, tbTitel.Text, (Bestuur)Session["Bestuur"],DateTime.Now);
+            sn.Visible = false;
+            BindData();
         }
     }
     
