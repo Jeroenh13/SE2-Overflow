@@ -8,46 +8,48 @@ namespace Classes
     public class Reactie
     {
         private int ID;
+        private int bestuursID;
+        private int sticky_noteID;
         private Bestuur user;
+        private DateTime datum;
         private string bericht;
         private int parentID;
     
-        public Reactie(Bestuur user, string bericht)
+        public Reactie(int ID, int bestuursid, int sticky_noteID, DateTime datum, string bericht)
         {
-            this.user = user;
+            this.ID = ID;
+            this.bestuursID = bestuursid;
+            this.sticky_noteID = sticky_noteID;
             this.bericht = bericht;
+            this.datum = datum;
         }
-
-        public int GetID
+        public Reactie(int ID, int bestuursid, int sticky_noteID, int parentID, DateTime datum, string bericht)
         {
-            get { return ID; }
-            set
-            {
-            }
+            this.ID = ID;
+            this.parentID = parentID;
+            this.sticky_noteID = sticky_noteID;
+            this.bestuursID = bestuursid;
+            this.bericht = bericht;
+            this.datum = datum;
         }
+        
+        public int GetID{get { return ID; }set{}}
 
-        public Bestuur User
-        {
-            get { return user; }
-            set
-            {
-            }
-        }
+        public int BestuursID { get { return bestuursID; } set { } }
+        
+        public int Sticky_NoteID { get { return sticky_noteID; } set { } }
 
-        public string Bericht
-        {
-            get { return bericht; }
-            set
-            {
-            }
-        }
+        public Bestuur User{get { return user; }set{}}
 
-        public int ParentID
+        public DateTime Datum { get { return datum; } }
+
+        public string Bericht{get { return bericht; }set{}}
+
+        public int ParentID{get { return parentID; }set{}}
+
+        public void AddBestuur(Bestuur b)
         {
-            get { return parentID; }
-            set
-            {
-            }
+            user = b;
         }
     }
 }

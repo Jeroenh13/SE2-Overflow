@@ -89,6 +89,32 @@ namespace Classes
             return LedenLijst;
         }
 
+        public List<Bestuur> GetBestuursLeden()
+        {
+            List<Bestuur> bestuur = new List<Bestuur>();
+            try
+            {
+                Connect(ConnectionString);
+                OleDbCommand cmd = new OleDbCommand();
+                cmd.Connection = connection;
+                cmd.CommandText =
+                    "SELECT * FROM DBS2_PERSOON p, DBS2_BESTUURSLID b WHERE p.ID IN(SELECT ID FROM DBS2_BESTUURSLID) AND p.ID = b.ID";
+                OleDbDataReader dr = cmd.ExecuteReader();
+                while (dr.Read())
+                {
+                    bestuur.Add(new Bestuur(Convert.ToInt32(dr[0]), dr[9].ToString(), dr[10].ToString(),
+                        dr[1].ToString(), dr[2].ToString(), Convert.ToDateTime(dr[5]), Convert.ToDateTime(dr[3]),
+                        dr[4].ToString(), Convert.ToChar(dr[6]), getBetaald(Convert.ToInt32(dr[0]))));
+                }
+            }
+            catch
+            {
+            }
+            finally
+            {Close();}
+            return bestuur;
+        }
+
         /// <summary>
         /// Vraagt de betaalstatus op van een bepaalde persoon
         /// NIET AANROEPEN!!
@@ -132,7 +158,62 @@ namespace Classes
 
             return done;
         }
+
+        public List<Sticky_Note> GetStickyNotes()
+        {
+            List<Sticky_Note> stickynotes = new List<Sticky_Note>();
+            try
+            {
+                Connect(ConnectionString);
+
+                OleDbCommand cmd = new OleDbCommand();
+                cmd.Connection = connection;
+                cmd.CommandText = "SELECT * FROM DBS2_STICKY_NOTE";
+
+                OleDbDataReader dr = cmd.ExecuteReader();
+
+                while (dr.Read())
+                {
+                    stickynotes.Add(new Sticky_Note(Convert.ToInt32(dr[0]), Convert.ToInt32(dr[1]), dr[3].ToString(),
+                        dr[4].ToString(), Convert.ToDateTime(dr[2])));
+                }
+            }
+            catch
+            { }
+            finally { Close(); }
+            return stickynotes;
+        }
+
+        public List<Reactie> GetReacties()
+        {
+            List<Reactie> reacties = new List<Reactie>();
+            try
+            {
+                Connect(ConnectionString);
+
+                OleDbCommand cmd = new OleDbCommand();
+                cmd.Connection = connection;
+                cmd.CommandText = "SELECT * FROM DBS2_REACTIE";
+
+                OleDbDataReader dr = cmd.ExecuteReader();
+
+                while (dr.Read())
+                {
+                    if (dr[1] == DBNull.Value)
+                    {
+                        reacties.Add(new Reactie(Convert.ToInt32(dr[0]),Convert.ToInt32(dr[3]), Convert.ToInt32(dr[2]),Convert.ToDateTime(dr[4]),dr[5].ToString()));
+                        
+                    }
+                    else
+                    {
+                        reacties.Add(new Reactie(Convert.ToInt32(dr[0]), Convert.ToInt32(dr[3]), Convert.ToInt32(dr[2]), Convert.ToInt32(dr[1]), Convert.ToDateTime(dr[4]), dr[5].ToString()));
+                    }
+                }
+            }
+            catch
+            { }
+            finally { Close(); }
+            return reacties;
+        }
     }
-
-
 }
