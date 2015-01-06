@@ -21,15 +21,40 @@
                 Datum: <%# Eval("Datum","{0:d/M/yyyy}") %> <br />
                 Naam: <%# Eval("user.Naam") %> <br/>
                 Bericht: <%# Eval("Bericht") %> <br/>
+                <asp:Button runat="server" ID="btnnew" CommandName="Reageer" CommandArgument='<%# Eval("GetID") %>' Text="Reageer" /> 
+                <asp:table runat="server" ID="reactietabel">
+                    <asp:tablerow class ="inschrijfTable" runat="server">
+                        <asp:TableCell runat="server">
+                            Bericht:
+                        </asp:TableCell>
+                        <asp:TableCell runat="server">
+                            <asp:TextBox runat="server" ID="tbBericht" TextMode="MultiLine" Height="94px" Width="298px" />
+                            <asp:Button runat="server" ID="AddReactie" Text="Post" CommandName="Post" CommandArgument='<%# Eval("GetID") %>'/>
+                        </asp:TableCell>
+                    </asp:tablerow>
+                </asp:table>
             </div>
-
                <asp:ListView ID="lvReactieChild" runat="server">
                     <ItemTemplate>
                         <div runat="server" class="child">
                             Datum: <%# Eval("Datum","{0:d/M/yyyy}") %> <br />
                             Naam: <%# Eval("user.Naam") %> <br/>
                             Bericht: <%# Eval("Bericht") %> <br/>
-                        </div>
+                            
+<%--                            <asp:Button runat="server" ID="btnnewChild" OnClick ="btnnew_OnClick" Text="Reageer"/>
+                                <asp:table runat="server" ID="reactietabelChild">
+                                    <asp:tablerow class ="inschrijfTable" runat="server">
+                                        <asp:TableCell runat="server">
+                                            Bericht:
+                                        </asp:TableCell>
+                                        <asp:TableCell runat="server">
+                                            <asp:TextBox runat="server" ID="tbBericht" TextMode="MultiLine" Height="94px" Width="298px"/>
+                                            <asp:Button runat="server" ID="AddReactie" OnClick="AddReactie_Click" Text="Post"/>
+                                        </asp:TableCell>
+                                    </asp:tablerow>
+                                </asp:table>--%>
+                                
+                            </div>
                     </ItemTemplate>
                 </asp:ListView>
         </ItemTemplate>

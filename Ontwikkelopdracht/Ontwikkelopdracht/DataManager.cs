@@ -22,9 +22,9 @@ namespace Ontwikkelopdracht
             db.AddStickyNote(titel, bericht, b.GetID, datum);
         }
 
-        public void NieuweReactie(Sticky_Note sn, string bericht, Bestuur b, DateTime datum)
+        public void NieuweReactie(int parent, Sticky_Note sn, string bericht, Bestuur b, DateTime datum)
         {
-            db.AddReactie(0,sn.GetID,bericht,b.GetID,datum);
+            db.AddReactie(parent, sn.GetID, bericht, b.GetID, datum);
         }
 
         public List<Persoon> GetLeden(string alph)
