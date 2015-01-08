@@ -5,7 +5,9 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Windows.Forms;
 using Classes;
+using Label = System.Web.UI.WebControls.Label;
 
 namespace Ontwikkelopdracht
 {
@@ -37,7 +39,7 @@ namespace Ontwikkelopdracht
 
         protected void btnNieuwLid_Click(object sender, EventArgs e)
         {
-
+            Response.Redirect("AddLidWebPage.aspx");
         }
 
         protected void btnPrijsLijst_Click(object sender, EventArgs e)
@@ -80,6 +82,7 @@ namespace Ontwikkelopdracht
         {
             dm.NieuweStickyNote(tbBericht.Text, tbTitel.Text, (Bestuur)Session["Bestuur"],DateTime.Now);
             sn.Visible = false;
+            MessageBox.Show("Sticky_note is toegevoegd");
             BindData();
         }
     }

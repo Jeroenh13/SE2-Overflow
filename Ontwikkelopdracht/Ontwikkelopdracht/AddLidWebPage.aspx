@@ -42,10 +42,11 @@
         </tr>
         <tr class ="inschrijfTable">
             <td class="inschrijfTable">
-                <asp:Label ID="lblGeboortedatum" runat="server" Text="Geboortedatum:"></asp:Label>
+                <asp:Label ID="lblGeboortedatum" runat="server" Text="Geboortedatum:*"></asp:Label>
             </td>
             <td class="inschrijfTable">
                 <asp:TextBox ID="tbGeboortedatum" runat="server" CssClass="tbCenter" ></asp:TextBox><asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ErrorMessage="Vul een geldige datum in" ControlToValidate="tbGeboortedatum" ValidationExpression="^([0]?[1-9]|[1|2][0-9]|[3][0|1])[./-]([0]?[1-9]|[1][0-2])[./-]([0-9]{4}|[0-9]{2})$"></asp:RegularExpressionValidator>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Vul een geboortedatum in" ControlToValidate="tbGeboortedatum"></asp:RequiredFieldValidator>
                 <ajaxToolkit:CalendarExtender ID="CEGeboortedatum" runat="server" TargetControlID="tbGeboortedatum" Format="dd/MM/yyyy">
                 </ajaxToolkit:CalendarExtender>
             </td>
@@ -58,6 +59,7 @@
                 <asp:TextBox ID="tbGeregistreerd" runat="server" CssClass="tbCenter" ></asp:TextBox><asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="Vul een geldige datum in" ControlToValidate="tbGeregistreerd" ValidationExpression="^([0]?[1-9]|[1|2][0-9]|[3][0|1])[./-]([0]?[1-9]|[1][0-2])[./-]([0-9]{4}|[0-9]{2})$"></asp:RegularExpressionValidator>
                 <ajaxToolkit:CalendarExtender ID="CEGeregistreerd" runat="server" TargetControlID="tbGeregistreerd" Format="dd/MM/yyyy">
                 </ajaxToolkit:CalendarExtender>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="Vul een registratie datum in" ControlToValidate="tbGeregistreerd"></asp:RequiredFieldValidator>
             </td>
         </tr>
     </table>

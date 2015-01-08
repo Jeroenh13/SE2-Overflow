@@ -145,8 +145,8 @@ namespace Classes
         /// Vraagt de betaalstatus op van een bepaalde persoon
         /// NIET AANROEPEN!!
         /// </summary>
-        /// <param name="pid">Persoons ID </param>
-        /// <returns>Bool betaald</returns>
+        /// <param name="pid">Persoon ID </param>
+        /// <returns>bool betaald</returns>
         public bool getBetaald(int pid)
         {
             bool isbetaald = false;
@@ -177,7 +177,7 @@ namespace Classes
 
                 OleDbCommand cmd = new OleDbCommand();
                 cmd.Connection = connection;
-                cmd.CommandText = "SELECT * FROM DBS2_STICKY_NOTE ORDER BY DATUM ASC";
+                cmd.CommandText = "SELECT * FROM DBS2_STICKY_NOTE ORDER BY DATUM DESC";
 
                 OleDbDataReader dr = cmd.ExecuteReader();
 
@@ -202,7 +202,7 @@ namespace Classes
 
                 OleDbCommand cmd = new OleDbCommand();
                 cmd.Connection = connection;
-                cmd.CommandText = "SELECT * FROM DBS2_REACTIE ORDER BY DATUM ASC";
+                cmd.CommandText = "SELECT * FROM DBS2_REACTIE ORDER BY DATUM DESC";
 
                 OleDbDataReader dr = cmd.ExecuteReader();
 

@@ -45,7 +45,7 @@
                                 Datum: <%# Eval("Datum","{0:d/M/yyyy}") %> <br />
                                 Naam: <%# Eval("Bestuur.Naam") %> <br/>
                                 Bericht: <%# Eval("Bericht") %> <br/>
-                                <asp:Button cssClass="snbutton" ID="btnToSticky_Note" runat="server" Text="Button" CommandName="Select" CommandArgument='<%# Eval("GetID") %>' />
+                                <asp:Button cssClass="snbutton" ID="btnToSticky_Note" runat="server" Text="Ga naar ->" CommandName="Select" CommandArgument='<%# Eval("GetID") %>' />
                             </div>
                         </ItemTemplate>
                     </asp:ListView>
@@ -57,7 +57,8 @@
     <asp:Button ID="btnLedenInfo" runat="server" OnClick="btnLedenInfo_Click" Text="Leden Info" CssClass="homePageButtons"/>
     <asp:Button ID="btnNieuwLid" runat="server" OnClick="btnNieuwLid_Click" Text="Nieuw Lid" CssClass="homePageButtons"/>
     <br />
+    <!--Pagina's nog niet geimplementeerd
     <asp:Button ID="btnPrijsLijst" runat="server" OnClick="btnPrijsLijst_Click" Text="Prijslijst" CssClass="homePageButtons"/>
-    <asp:Button ID="btnEvent" runat="server" OnClick="btnEvent_Click" Text="Nieuw Event" CssClass="homePageButtons"/>
+    <asp:Button ID="btnEvent" runat="server" OnClick="btnEvent_Click" Text="Nieuw Event" CssClass="homePageButtons"/> -->
 
 </asp:Content>

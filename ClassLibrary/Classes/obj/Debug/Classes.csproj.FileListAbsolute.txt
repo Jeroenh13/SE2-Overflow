@@ -7,3 +7,4 @@ C:\Github\SE2-Overflow\ClassLibrary\Classes\bin\Debug\Classes.pdb
 C:\Github\SE2-Overflow\ClassLibrary\Classes\obj\Debug\Classes.dll
 C:\Github\SE2-Overflow\ClassLibrary\Classes\obj\Debug\Classes.pdb
 C:\Github\SE2-Overflow\ClassLibrary\Classes\obj\Debug\Classes.csprojResolveAssemblyReference.cache
+E:\Github\SE2-Overflow\ClassLibrary\Classes\obj\Debug\Classes.csprojResolveAssemblyReference.cache

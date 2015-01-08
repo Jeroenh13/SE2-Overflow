@@ -19,15 +19,12 @@ namespace Ontwikkelopdracht
         protected void btnLogin_Click(object sender, EventArgs e)
         {
             Bestuur b = null;
-            try
-            {
-                b = dm.Login(tbUserName.Text, tbPassword.Text);
-            }
-            catch
+            b = dm.Login(tbUserName.Text, tbPassword.Text);
+            if(b == null)
             {
                 lblError.Text = "Inlog gegevens incorrect";
             }
-            finally
+            else
             {
                 Session["Bestuur"] = b;
                 Response.Redirect("HomePage.aspx");

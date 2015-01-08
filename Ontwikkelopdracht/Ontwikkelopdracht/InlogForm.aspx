@@ -18,7 +18,7 @@
             Overflow
         </div>
         <div class="content">
-            <asp:label id="lblError" runat="server"></asp:label>
+                <asp:label id="lblError" runat="server"></asp:label> <br/>
                 Username: <asp:TextBox ID="tbUserName" runat="server"></asp:TextBox><br />
                 Password: <asp:TextBox ID="tbPassword" runat="server" TextMode="Password"></asp:TextBox><br />
                 <asp:Button ID="btnLogin" runat="server" Text="Log In" OnClick="btnLogin_Click" />

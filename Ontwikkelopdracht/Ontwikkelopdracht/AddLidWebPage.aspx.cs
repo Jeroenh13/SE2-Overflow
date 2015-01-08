@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Windows.Forms;
 
 namespace Ontwikkelopdracht
 {
@@ -19,7 +20,8 @@ namespace Ontwikkelopdracht
         {
             if (dm.NieuwLid(tbVoornaam.Text, tbAchternaam.Text, Convert.ToDateTime(tbGeregistreerd.Text, new CultureInfo("en-GB")), tbEmail.Text, Convert.ToDateTime(tbGeboortedatum.Text, new CultureInfo("en-GB")), Convert.ToChar(ddlGeslacht.SelectedValue), false))
             {
-
+                MessageBox.Show("Lid is toegevoegd");
+                Response.Redirect("HomePage.aspx");
             }
         }
     }

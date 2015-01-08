@@ -47,15 +47,6 @@ namespace Classes
         public int CompareTo(Persoon other)
         { throw new NotImplementedException(); }
 
-        public void Wijzig(int ID, string naam, DateTime gebdatum, string email, char geslacht)
-        {
-            this.ID = ID;
-            this.naam = naam;
-            this.geboortedatum = gebdatum;
-            this.emailadres = email;
-            this.geslacht = geslacht;
-        }
-
         public override string ToString()
         {
             return Convert.ToString(ID) + naam + achternaam + emailadres + Convert.ToString(geboortedatum) + Convert.ToString(geslacht) +

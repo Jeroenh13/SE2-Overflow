@@ -4,7 +4,9 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Windows.Forms;
 using Classes;
+using TextBox = System.Web.UI.WebControls.TextBox;
 
 namespace Ontwikkelopdracht
 {
@@ -25,7 +27,6 @@ namespace Ontwikkelopdracht
         {
             if (!IsPostBack)
             {
-                
                 sn.Add((Sticky_Note)Session["STICKY_NOTE"]);
                 BindReacties();
             }
@@ -61,6 +62,7 @@ namespace Ontwikkelopdracht
             Bestuur b = (Bestuur)Session["BESTUUR"];
             if (dm.NieuweReactie(0, sn, tbBericht.Text, b, DateTime.Now))
             {
+                MessageBox.Show("Reactie is toegevoegd");
                 BindReacties();
             }
             else
@@ -86,6 +88,7 @@ namespace Ontwikkelopdracht
                 {
                     tb1.Visible = false;
                     UpdateSession();
+                    MessageBox.Show("Reactie is toegevoegd");
                     BindReacties();
                 }
                 else
