@@ -168,23 +168,6 @@ namespace Classes
             return isbetaald;   
         }
 
-        public bool nieuwLid()
-        {
-            bool done;
-            try
-            {
-                done = true;
-            }
-            catch
-            {
-                done = false;
-            }
-            finally
-            {Close();}
-
-            return done;
-        }
-
         public List<Sticky_Note> GetStickyNotes()
         {
             List<Sticky_Note> stickynotes = new List<Sticky_Note>();
@@ -298,13 +281,67 @@ namespace Classes
                 }
                 if (parentid == 0)
                 {
-                    cmd.CommandText = "INSERT INTO DBS2_REACTIE(ID, STICKY_NOTE_ID, BESTUURSLID_ID, DATUM, BERICHT) VALUES(" + ID + "," + snid + "," + bid + "," + "TO_DATE('" + datum + "','dd/mm/yyyy hh24:mi:ss')" + ",'" + bericht + "')";
+                    cmd.CommandText = "INSERT INTO DBS2_REACTIE(ID, STICKY_NOTE_ID, BESTUURSLID_ID, DATUM, BERICHT) VALUES(_ID ,_snid,_bid, TO_DATE('" + datum + "','dd/mm/yyyy hh24:mi:ss'),'_bericht');";
+                    //cmd.CommandText = "INSERT INTO DBS2_REACTIE(ID, STICKY_NOTE_ID, BESTUURSLID_ID, DATUM, BERICHT) VALUES(" + ID + "," + snid + "," + bid + "," + "TO_DATE('" + datum + "','dd/mm/yyyy hh24:mi:ss')" + ",'" + bericht + "')";
+                    cmd.Parameters.Add("_ID", ID);
+                    cmd.Parameters.Add("_snid", snid);
+                    cmd.Parameters.Add("_bid", bid);
+                    cmd.Parameters.Add("_bericht", bericht);
                 }
                 else
                 {
                     cmd.CommandText = "INSERT INTO DBS2_REACTIE(ID, PARENT_ID, STICKY_NOTE_ID, BESTUURSLID_ID, DATUM, BERICHT) VALUES(" + ID + "," + parentid + "," + snid + "," + bid + "," + "TO_DATE('" + datum + "','dd/mm/yyyy hh24:mi:ss')" + ",'" + bericht + "')";
                 }
                 cmd.ExecuteNonQuery();
+                done = true;
+            }
+            catch
+            {
+                done = false;
+            }
+            finally { Close(); }
+            return done;
+        }
+
+        public bool AddLid(string naam, string achternaam, DateTime datum_geregistreerd, string email, DateTime geboortedatum, char geslacht, bool isbestuur)
+        {
+            bool done = false;
+            int ID = 0;
+            try
+            {
+                Connect(ConnectionString);
+
+                OleDbCommand cmd = new OleDbCommand();
+                OleDbCommand cmdselect = new OleDbCommand();
+                OleDbCommand cmdLid = new OleDbCommand();
+                cmdselect.Connection = connection;
+                cmd.Connection = connection;
+                cmdLid.Connection = connection;
+                cmdselect.CommandText = "SELECT MAX(ID) FROM DBS2_PERSOON";
+
+                OleDbDataReader dr = cmdselect.ExecuteReader();
+
+                while (dr.Read())
+                {
+                    ID = Convert.ToInt32(dr[0]);
+                    ID++;
+                }
+                cmd.CommandText =
+                    "INSERT INTO DBS2_PERSOON(ID, NAAM, ACHTERNAAM, DATUM_GEREGISTREERD, EMAIL, GEBOORTEDATUM, GESLACHT, ISBESTUUR) VALUES(_ID,'_naam','_achternaam'," +
+                    "TO_DATE('" + datum_geregistreerd + "','dd/mm/yyyy hh24:mi:ss'),'_email'," + "TO_DATE('" +
+                    datum_geregistreerd + ",'_geslacht',_isbestuur);";
+                cmd.Parameters.Add("_ID", ID);
+                cmd.Parameters.Add("_naam", naam);
+                cmd.Parameters.Add("_achternaam", achternaam);
+                cmd.Parameters.Add("_email", email);
+                cmd.Parameters.Add("_geslacht", geslacht);
+                cmd.Parameters.Add("_isbestuur", Convert.ToInt32(isbestuur));
+
+                cmd.ExecuteNonQuery();
+                cmdLid.CommandText = "INSERT INTO DBS2_LID(ID) VALUES(_ID)";
+                cmdLid.Parameters.Add("_ID", ID);
+                cmdLid.ExecuteNonQuery();
+
                 done = true;
             }
             catch
