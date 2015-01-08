@@ -39,41 +39,61 @@ namespace Ontwikkelopdracht
 
         public void BindReacties()
         {
-            refresh = false;
-            ListView childview = lvReacties.FindControl("lvReactieChild") as ListView;
+            //refresh = false;
+            //ListView childview = lvReacties.FindControl("lvReactieChild") as ListView;
             sn[0] = (Sticky_Note)Session["STICKY_NOTE"];
             stickynote.DataSource = sn;
             stickynote.DataBind();
-            foreach (Reactie r in sn[0].Reacties)
+            foreach(Reactie r in sn[0].Reacties)
             {
-                if (r.ParentID == 0)
-                {
-                    parents.Add(r);
-                }
+                parents.Add(r);
             }
+            //foreach (Reactie r in sn[0].Reacties)
+            //{
+            //    if (r.ParentID == 0)
+            //    {
+            //        parents.Add(r);
+            //    }
+            //}
             lvReacties.DataSource = parents;
             lvReacties.DataBind();
         }
 
         protected void lvReacties_OnItemDataBound(object sender, ListViewItemEventArgs e)
         {
-            if (refresh == false)
-            {
-                ListView childview = e.Item.FindControl("lvReactieChild") as ListView;
-                foreach (Reactie r in sn[0].Reacties)
-                {
-                    foreach (Reactie rparent in parents)
-                    {
-                        if (r.ParentID == rparent.GetID)
-                        {
-                            childs.Add(r);
-                        }
-                    }
-                }
-                childview.DataSource = childs;
-                childview.DataBind();
-                refresh = true;
-            }
+            //if (refresh == false)
+            //{
+            //    foreach (Reactie rparent in parents)
+            //    {
+            //        ListView childview = e.Item.FindControl("lvReactieChild") as ListView;
+            //        childs.Clear();
+            //        foreach (Reactie r in sn[0].Reacties)
+            //        {       
+            //            if (r.ParentID == rparent.GetID)
+            //            {
+            //                childs.Add(r);
+            //            }
+            //        }
+            //        childview.DataSource = childs;
+            //        childview.DataBind();
+            //    }
+            //    foreach (Reactie r in sn[0].Reacties)
+            //    {
+            //        ListView childview = e.Item.FindControl("lvReactieChild") as ListView;
+            //        childs.Clear();
+            //        foreach (Reactie rparent in parents)
+            //        {
+            //            if (r.ParentID == rparent.GetID)
+            //            {
+            //                childs.Add(r);
+            //            }
+            //        }
+
+            //        childview.DataSource = childs;
+            //        childview.DataBind();
+                
+            //    refresh = true;
+            //}
             Table tb = e.Item.FindControl("reactietabel") as Table;
             tb.Visible = false;
         }

@@ -18,6 +18,7 @@
     <asp:ListView runat="server" ID="lvReacties" OnItemDataBound="lvReacties_OnItemDataBound">
         <ItemTemplate>
             <div runat="server" class="reactie">
+                ParentID: <%# Eval("ParentID") %><br />
                 Datum: <%# Eval("Datum","{0:d/M/yyyy}") %> <br />
                 Naam: <%# Eval("user.Naam") %> <br/>
                 Bericht: <%# Eval("Bericht") %> <br/>
