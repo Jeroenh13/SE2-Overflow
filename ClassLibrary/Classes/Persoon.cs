@@ -27,25 +27,25 @@ namespace Classes
             this.geslacht = geslacht;
             this.betaalstatus = betaalstatus;
         }
-        
-        public int GetID{get { return ID; }set{}}
 
-        public string Naam{get { return naam; }set{}}
+        public int GetID { get { return ID; } }
 
-        public string Achternaam { get { return achternaam; } set { } }
+        public string Naam { get { return naam; } }
 
-        public string Emailadres{get { return emailadres; }set{}}
+        public string Achternaam { get { return achternaam; } }
 
-        public DateTime GeboorteDatum{get { return geboortedatum; }set{}}
+        public string Emailadres { get { return emailadres; } }
 
-        public char Geslacht{get { return geslacht; }set{}}
+        public DateTime GeboorteDatum { get { return geboortedatum; } }
 
-        public DateTime RegistratieDatum{get { return registratiedatum; }set{}}
+        public char Geslacht { get { return geslacht; } }
 
-        public bool Betaalstatus{get { return betaalstatus; }set{}}
+        public DateTime RegistratieDatum { get { return registratiedatum; } }
+
+        public bool Betaalstatus { get { return betaalstatus; } }
 
         public int CompareTo(Persoon other)
-        {throw new NotImplementedException();}
+        { throw new NotImplementedException(); }
 
         public void Wijzig(int ID, string naam, DateTime gebdatum, string email, char geslacht)
         {

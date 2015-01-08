@@ -17,14 +17,45 @@ namespace Ontwikkelopdracht
             return b;
         }
 
-        public void NieuweStickyNote(string titel, string bericht, Bestuur b, DateTime datum)
+        public bool NieuweStickyNote(string titel, string bericht, Bestuur b, DateTime datum)
         {
-            db.AddStickyNote(titel, bericht, b.GetID, datum);
+            bool done = false;
+            if(db.AddStickyNote(titel, bericht, b.GetID, datum))
+            {
+                done = true;
+            }
+            else
+            {
+                done = false;
+            }
+            return done;
         }
 
-        public void NieuweReactie(int parent, Sticky_Note sn, string bericht, Bestuur b, DateTime datum)
+        public bool NieuweReactie(int parent, Sticky_Note sn, string bericht, Bestuur b, DateTime datum)
         {
-            db.AddReactie(parent, sn.GetID, bericht, b.GetID, datum);
+            bool done = false;
+            if(db.AddReactie(parent, sn.GetID, bericht, b.GetID, datum))
+            {
+                done = true;
+            }
+            else
+            {
+                done = false;
+            }
+            return done;
+        }
+
+        public bool NieuwLid(string naam, string achternaam, DateTime datum_geregistreerd, string email, DateTime geboortedatum, char geslacht, bool isbestuur)
+        {
+            bool done = false;
+            if(db.AddLid(naam, achternaam, datum_geregistreerd, email, geboortedatum, geslacht, isbestuur))
+            {
+                done = true;
+            }
+            else            {
+                done = false;
+            }
+            return done;
         }
 
         public List<Persoon> GetLeden(string alph)

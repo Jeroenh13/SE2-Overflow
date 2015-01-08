@@ -10,7 +10,16 @@
 namespace Ontwikkelopdracht {
     
     
-    public partial class Sticky_NoteForm1 {
+    public partial class Sticky_NoteForm {
+        
+        /// <summary>
+        /// FoutLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label FoutLabel;
         
         /// <summary>
         /// stickynote control.

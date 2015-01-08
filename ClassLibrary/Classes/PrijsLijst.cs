@@ -19,43 +19,38 @@ namespace Classes
             this.user = user;
             items = new List<Item>();
         }
-        public int GetID
+        public int GetID { get { return ID; } }
+
+        public string Naam { get { return naam; } }
+
+        public List<Item> GetItems { get { return items; } }
+
+        public Bestuur User { get { return user; } }
+
+        public bool AddItem(Item item)
         {
-            get { return ID; }
-            set
+            bool done = false;
+            try
             {
+                items.Add(item);
+                done = true;
             }
-        }
-
-        public string Naam
-        {
-            get { return naam; }
-            set
+            catch
             {
+                done = false;
             }
+            return done;
         }
 
-        public List<Item> GetItems
+        public void VerwijderItem(Item item)
         {
-            get { return items; }
-        }
-
-        public Bestuur User
-        {
-            get { return user; }
-            set
+            foreach (Item i in items)
             {
+                if (i.GetID == item.GetID)
+                {
+                    items.Remove(i);
+                }
             }
-        }
-
-        public bool AddItem(Item i)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public void VerwijderItem(Item i)
-        {
-            throw new System.NotImplementedException();
         }
     }
 }

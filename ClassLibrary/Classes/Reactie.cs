@@ -32,20 +32,20 @@ namespace Classes
             this.bericht = bericht;
             this.datum = datum;
         }
-        
-        public int GetID{get { return ID; }set{}}
 
-        public int BestuursID { get { return bestuursID; } set { } }
-        
-        public int Sticky_NoteID { get { return sticky_noteID; } set { } }
+        public int GetID { get { return ID; } }
 
-        public Bestuur User{get { return user; }set{}}
+        public int BestuursID { get { return bestuursID; } }
+
+        public int Sticky_NoteID { get { return sticky_noteID; } }
+
+        public Bestuur User { get { return user; } }
 
         public DateTime Datum { get { return datum; } }
 
-        public string Bericht{get { return bericht; }set{}}
+        public string Bericht { get { return bericht; } }
 
-        public int ParentID{get { return parentID; }set{}}
+        public int ParentID { get { return parentID; } }
 
         public void AddBestuur(Bestuur b)
         {

@@ -8,7 +8,7 @@ using Classes;
 
 namespace Ontwikkelopdracht
 {
-    public partial class Sticky_NoteForm : System.Web.UI.Page
+    public partial class Sticky_NoteForm1 : System.Web.UI.Page
     {
         DataManager dm = new DataManager();
         private List<Sticky_Note> sn = new List<Sticky_Note>();
@@ -25,7 +25,9 @@ namespace Ontwikkelopdracht
         {
             if (!IsPostBack)
             {
-                
+                if (Session["STICKY_NOTE"] == null)
+                {
+                }
                 sn.Add((Sticky_Note)Session["STICKY_NOTE"]);
                 BindReacties();
             }
@@ -37,7 +39,8 @@ namespace Ontwikkelopdracht
 
         public void BindReacties()
         {
-            UpdateSession();
+            refresh = false;
+            ListView childview = lvReacties.FindControl("lvReactieChild") as ListView;
             sn[0] = (Sticky_Note)Session["STICKY_NOTE"];
             stickynote.DataSource = sn;
             stickynote.DataBind();
@@ -45,12 +48,37 @@ namespace Ontwikkelopdracht
             {
                 parents.Add(r);
             }
+            foreach (Reactie r in sn[0].Reacties)
+            {
+                if (r.ParentID == 0)
+                {
+                    parents.Add(r);
+                }
+            }
             lvReacties.DataSource = parents;
             lvReacties.DataBind();
         }
 
         protected void lvReacties_OnItemDataBound(object sender, ListViewItemEventArgs e)
         {
+            if (refresh == false)
+            {
+                foreach (Reactie rparent in parents)
+                {
+                    ListView childview = e.Item.FindControl("lvReactieChild") as ListView;
+                    childs.Clear();
+                    foreach (Reactie r in sn[0].Reacties)
+                    {       
+                        if (r.ParentID == rparent.GetID)
+                        {
+                            childs.Add(r);
+                        }
+                    }
+                    childview.DataSource = childs;
+                    childview.DataBind();
+                }
+                refresh = true;
+            }
             Table tb = e.Item.FindControl("reactietabel") as Table;
             tb.Visible = false;
         }
@@ -59,14 +87,8 @@ namespace Ontwikkelopdracht
         {
             Sticky_Note sn = (Sticky_Note)Session["STICKY_NOTE"];
             Bestuur b = (Bestuur)Session["BESTUUR"];
-            if (dm.NieuweReactie(0, sn, tbBericht.Text, b, DateTime.Now))
-            {
-                BindReacties();
-            }
-            else
-            {
-                FoutLabel.Text = "reactie niet geplaatst";
-            }
+            dm.NieuweReactie(0, sn,tbBericht.Text,b,DateTime.Now);
+            BindReacties();
         }
 
         protected void lvReacties_ItemCommand(object sender, ListViewCommandEventArgs e)
@@ -82,16 +104,10 @@ namespace Ontwikkelopdracht
                 Sticky_Note sn = (Sticky_Note)Session["STICKY_NOTE"];
                 Bestuur b = (Bestuur)Session["BESTUUR"];
                 TextBox tb = e.Item.FindControl("tbBericht") as TextBox;
-                if (dm.NieuweReactie(Convert.ToInt32(e.CommandArgument), sn, tb.Text, b, DateTime.Now))
-                {
-                    tb1.Visible = false;
-                    UpdateSession();
-                    BindReacties();
-                }
-                else
-                {
-                    FoutLabel.Text = "Reactie is niet geplaaatst";
-                }
+                dm.NieuweReactie(Convert.ToInt32(e.CommandArgument),sn,tb.Text,b,DateTime.Now);
+                tb1.Visible = false;
+                UpdateSession();
+                BindReacties();
             }
         }
 

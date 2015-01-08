@@ -20,37 +20,13 @@ namespace Classes
             highlighted = false;
         }
 
-        public int GetID
-        {
-            get { return ID; }
-            set
-            {
-            }
-        }
+        public int GetID { get { return ID; } }
 
-        public string Naam
-        {
-            get { return naam; }
-            set
-            {
-            }
-        }
+        public string Naam { get { return naam; } }
 
-        public double Prijs
-        {
-            get { return prijs; }
-            set
-            {
-            }
-        }
+        public double Prijs { get { return prijs; } }
 
-        public bool HighLighted
-        {
-            get { return highlighted; }
-            set
-            {
-            }
-        }
+        public bool HighLighted { get { return highlighted; } }
 
         public void UpdatePrijs(double prijs)
         {

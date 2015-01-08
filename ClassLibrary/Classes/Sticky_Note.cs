@@ -26,19 +26,19 @@ namespace Classes
             this.bericht = bericht;
         }
 
-        public int GetID{get { return ID; }set{}}
+        public int GetID { get { return ID; } }
 
-        public DateTime Datum{get { return datum; }set{}}
+        public DateTime Datum { get { return datum; } }
 
-        public string Titel{get { return titel; }set{}}
+        public string Titel { get { return titel; } }
 
-        public string Bericht{get { return bericht; }set{}}
+        public string Bericht { get { return bericht; } }
 
-        public int BestuursID { get { return bestuursID; } set { } }
+        public int BestuursID { get { return bestuursID; } }
 
-        public Bestuur Bestuur {get { return bestuur; }}
+        public Bestuur Bestuur { get { return bestuur; } }
 
-        public List<Reactie> Reacties{get { return reacties; }set{}}
+        public List<Reactie> Reacties { get { return reacties; } }
         
         public void AddBestuur(Bestuur b)
         {

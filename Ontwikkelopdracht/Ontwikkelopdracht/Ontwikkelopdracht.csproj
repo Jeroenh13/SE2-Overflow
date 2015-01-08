@@ -87,14 +87,16 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AddLidWebPage.aspx" />
-    <Content Include="GameGridForm.aspx" />
+    <Content Include="ErrorPage.aspx" />
     <Content Include="HomePage.aspx" />
     <Content Include="InlogForm.aspx" />
     <Content Include="LedenWebPage.aspx" />
     <Content Include="overflow.css" />
     <Content Include="bootstrap.css" />
     <Content Include="Images\vector.png" />
+    <Content Include="Prijslijst.aspx" />
     <Content Include="Sticky_NoteForm.aspx" />
+    <Content Include="Sticky_NoteForm2.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -106,6 +108,13 @@
       <DependentUpon>AddLidWebPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="DataManager.cs" />
+    <Compile Include="ErrorPage.aspx.cs">
+      <DependentUpon>ErrorPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ErrorPage.aspx.designer.cs">
+      <DependentUpon>ErrorPage.aspx</DependentUpon>
+    </Compile>
     <Compile Include="HomePage.aspx.cs">
       <DependentUpon>HomePage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -127,6 +136,13 @@
     <Compile Include="LedenWebPage.aspx.designer.cs">
       <DependentUpon>LedenWebPage.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Prijslijst.aspx.cs">
+      <DependentUpon>Prijslijst.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Prijslijst.aspx.designer.cs">
+      <DependentUpon>Prijslijst.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="MasterPage.Master.cs">
       <DependentUpon>MasterPage.Master</DependentUpon>
@@ -141,6 +157,13 @@
     </Compile>
     <Compile Include="Sticky_NoteForm.aspx.designer.cs">
       <DependentUpon>Sticky_NoteForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Sticky_NoteForm2.aspx.cs">
+      <DependentUpon>Sticky_NoteForm2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Sticky_NoteForm2.aspx.designer.cs">
+      <DependentUpon>Sticky_NoteForm2.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

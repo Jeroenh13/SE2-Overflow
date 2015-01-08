@@ -23,45 +23,14 @@ namespace Classes
         }
 
 
+        public Bestuur User { get { return user; } }
 
-        public Bestuur User
-        {
-            get { return user; }
-            set
-            {
-            }
-        }
+        public string Naam { get { return naam; } }
 
-        public string Naam
-        {
-            get { return naam; }
-            set
-            {
-            }
-        }
+        public DateTime Datum_Tijd { get { return datum_tijd; } }
 
-        public DateTime Datum_Tijd
-        {
-            get { return datum_tijd; }
-            set
-            {
-            }
-        }
+        public string Locatie { get { return locatie; } }
 
-        public string Locatie
-        {
-            get { return locatie; }
-            set
-            {
-            }
-        }
-
-        public int GetID
-        {
-            get { return ID; }
-            set
-            {
-            }
-        }
+        public int GetID { get { return ID; } }
     }
 }

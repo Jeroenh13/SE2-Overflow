@@ -66,7 +66,7 @@ namespace Classes
             {
             }
             finally
-            {Close();}
+            { Close(); }
             return b;
         }
 
@@ -137,7 +137,7 @@ namespace Classes
             {
             }
             finally
-            {Close();}
+            { Close(); }
             return bestuur;
         }
 
@@ -177,7 +177,7 @@ namespace Classes
 
                 OleDbCommand cmd = new OleDbCommand();
                 cmd.Connection = connection;
-                cmd.CommandText = "SELECT * FROM DBS2_STICKY_NOTE";
+                cmd.CommandText = "SELECT * FROM DBS2_STICKY_NOTE ORDER BY DATUM ASC";
 
                 OleDbDataReader dr = cmd.ExecuteReader();
 
@@ -202,7 +202,7 @@ namespace Classes
 
                 OleDbCommand cmd = new OleDbCommand();
                 cmd.Connection = connection;
-                cmd.CommandText = "SELECT * FROM DBS2_REACTIE";
+                cmd.CommandText = "SELECT * FROM DBS2_REACTIE ORDER BY DATUM ASC";
 
                 OleDbDataReader dr = cmd.ExecuteReader();
 
@@ -210,7 +210,7 @@ namespace Classes
                 {
                     if (dr[1] == DBNull.Value)
                     {
-                        reacties.Add(new Reactie(Convert.ToInt32(dr[0]),Convert.ToInt32(dr[3]), Convert.ToInt32(dr[2]),Convert.ToDateTime(dr[4]),dr[5].ToString()));
+                        reacties.Add(new Reactie(Convert.ToInt32(dr[0]), Convert.ToInt32(dr[3]), Convert.ToInt32(dr[2]), Convert.ToDateTime(dr[4]), dr[5].ToString()));
                         
                     }
                     else
@@ -281,12 +281,12 @@ namespace Classes
                 }
                 if (parentid == 0)
                 {
-                    cmd.CommandText = "INSERT INTO DBS2_REACTIE(ID, STICKY_NOTE_ID, BESTUURSLID_ID, DATUM, BERICHT) VALUES(_ID ,_snid,_bid, TO_DATE('" + datum + "','dd/mm/yyyy hh24:mi:ss'),'_bericht');";
-                    //cmd.CommandText = "INSERT INTO DBS2_REACTIE(ID, STICKY_NOTE_ID, BESTUURSLID_ID, DATUM, BERICHT) VALUES(" + ID + "," + snid + "," + bid + "," + "TO_DATE('" + datum + "','dd/mm/yyyy hh24:mi:ss')" + ",'" + bericht + "')";
-                    cmd.Parameters.Add("_ID", ID);
-                    cmd.Parameters.Add("_snid", snid);
-                    cmd.Parameters.Add("_bid", bid);
-                    cmd.Parameters.Add("_bericht", bericht);
+                    // cmd.CommandText = "INSERT INTO DBS2_REACTIE(ID, STICKY_NOTE_ID, BESTUURSLID_ID, DATUM, BERICHT) VALUES(_ID ,_snid,_bid, TO_DATE('" + datum + "','dd/mm/yyyy hh24:mi:ss'),'_bericht');";
+                    cmd.CommandText = "INSERT INTO DBS2_REACTIE(ID, STICKY_NOTE_ID, BESTUURSLID_ID, DATUM, BERICHT) VALUES(" + ID + "," + snid + "," + bid + "," + "TO_DATE('" + datum + "','dd/mm/yyyy hh24:mi:ss')" + ",'" + bericht + "')";
+                    // cmd.Parameters.Add("_ID", ID);
+                    // cmd.Parameters.Add("_snid", snid);
+                    // cmd.Parameters.Add("_bid", bid);
+                    // cmd.Parameters.Add("_bericht", bericht);
                 }
                 else
                 {
@@ -326,19 +326,24 @@ namespace Classes
                     ID = Convert.ToInt32(dr[0]);
                     ID++;
                 }
-                cmd.CommandText =
-                    "INSERT INTO DBS2_PERSOON(ID, NAAM, ACHTERNAAM, DATUM_GEREGISTREERD, EMAIL, GEBOORTEDATUM, GESLACHT, ISBESTUUR) VALUES(_ID,'_naam','_achternaam'," +
-                    "TO_DATE('" + datum_geregistreerd + "','dd/mm/yyyy hh24:mi:ss'),'_email'," + "TO_DATE('" +
-                    datum_geregistreerd + ",'_geslacht',_isbestuur);";
-                cmd.Parameters.Add("_ID", ID);
-                cmd.Parameters.Add("_naam", naam);
-                cmd.Parameters.Add("_achternaam", achternaam);
-                cmd.Parameters.Add("_email", email);
-                cmd.Parameters.Add("_geslacht", geslacht);
-                cmd.Parameters.Add("_isbestuur", Convert.ToInt32(isbestuur));
+                cmd.CommandText = "INSERT INTO DBS2_PERSOON(ID,NAAM,ACHTERNAAM,DATUM_GEREGISTREERD,EMAIL,GEBOORTEDATUM,GESLACHT,ISBESTUUR)VALUES(" + ID + ", '" + naam + "','"
+                    + achternaam + "',TO_DATE('" + datum_geregistreerd.ToShortDateString() + "','dd/mm/yyyy hh24:mi:ss'),'" + email + "',TO_DATE('" + geboortedatum.ToShortDateString() + "','dd/mm/yyyy hh24:mi:ss'),'"
+                    + geslacht + "'," + Convert.ToInt32(isbestuur) + ")";
+
+                // cmd.CommandText =
+                //    "INSERT INTO DBS2_PERSOON(ID, NAAM, ACHTERNAAM, DATUM_GEREGISTREERD, EMAIL, GEBOORTEDATUM, GESLACHT, ISBESTUUR) VALUES(:ID,':naam',':achternaam', TO_DATE(':datumgeregistreerd','dd/mm/yyyy'),':email', TO_DATE(':geboortedatum','dd/mm/yyyy'),':geslacht',:isbestuur)";
+                // cmd.Parameters.Add(":ID", ID);
+                // cmd.Parameters.Add(":naam", naam);
+                // cmd.Parameters.Add(":achternaam", achternaam);
+                // cmd.Parameters.Add(":datumgeregistreerd", datum_geregistreerd.ToShortDateString());
+                // cmd.Parameters.Add(":geboortedatum", geboortedatum.ToShortDateString());
+                // cmd.Parameters.Add(":email", email);
+                // cmd.Parameters.Add(":geslacht", geslacht);
+                // cmd.Parameters.Add(":isbestuur", Convert.ToInt32(isbestuur));
 
                 cmd.ExecuteNonQuery();
-                cmdLid.CommandText = "INSERT INTO DBS2_LID(ID) VALUES(_ID)";
+
+                cmdLid.CommandText = "INSERT INTO DBS2_LID(ID) VALUES(" + ID + ")";
                 cmdLid.Parameters.Add("_ID", ID);
                 cmdLid.ExecuteNonQuery();
 
@@ -351,5 +356,6 @@ namespace Classes
             finally { Close(); }
             return done;
         }
+
     }
 }
