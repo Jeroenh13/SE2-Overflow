@@ -57,8 +57,8 @@
     <asp:Button ID="btnLedenInfo" runat="server" OnClick="btnLedenInfo_Click" Text="Leden Info" CssClass="homePageButtons"/>
     <asp:Button ID="btnNieuwLid" runat="server" OnClick="btnNieuwLid_Click" Text="Nieuw Lid" CssClass="homePageButtons"/>
     <br />
-    <!--Pagina's nog niet geimplementeerd
     <asp:Button ID="btnPrijsLijst" runat="server" OnClick="btnPrijsLijst_Click" Text="Prijslijst" CssClass="homePageButtons"/>
+    <!--Pagina's nog niet geimplementeerd
     <asp:Button ID="btnEvent" runat="server" OnClick="btnEvent_Click" Text="Nieuw Event" CssClass="homePageButtons"/> -->
 
 </asp:Content>

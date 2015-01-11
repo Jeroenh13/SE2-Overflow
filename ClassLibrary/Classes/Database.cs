@@ -115,6 +115,40 @@ namespace Classes
             return LedenLijst;
         }
 
+        public List<Item> GetItems(int itemcat)
+        {
+            List<Item> items = new List<Item>();
+            try
+            {
+                Connect(ConnectionString);
+
+                OleDbCommand cmd = new OleDbCommand();
+                cmd.Connection = connection;
+                if (itemcat == 1)
+                {
+                    cmd.CommandText =
+                           "SELECT * FROM DBS2_ITEM WHERE CATEGORIE_ID = 1";
+
+                }
+                else if(itemcat == 2)
+                {
+                    cmd.CommandText =
+                        "SELECT * FROM DBS2_ITEM WHERE CATEGORIE_ID = 2";
+                }
+
+                OleDbDataReader dr = cmd.ExecuteReader();
+
+                while (dr.Read())
+                {
+                    items.Add(new Item(Convert.ToInt32(dr[0]),dr[2].ToString(),dr[3].ToString()));
+                }
+            }
+            catch
+            { }
+            finally { Close(); }
+            return items;
+        }
+
         public List<Bestuur> GetBestuursLeden()
         {
             List<Bestuur> bestuur = new List<Bestuur>();

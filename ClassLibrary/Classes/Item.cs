@@ -9,10 +9,10 @@ namespace Classes
     {
         private int ID;
         private string naam;
-        private double prijs;
+        private string prijs;
         private bool highlighted;
 
-        public Item(int ID, string naam, double prijs)
+        public Item(int ID, string naam, string prijs)
         {
             this.ID = ID;
             this.naam = naam;
@@ -24,11 +24,11 @@ namespace Classes
 
         public string Naam { get { return naam; } }
 
-        public double Prijs { get { return prijs; } }
+        public string Prijs { get { return prijs; } }
 
         public bool HighLighted { get { return highlighted; } }
 
-        public void UpdatePrijs(double prijs)
+        public void UpdatePrijs(string prijs)
         {
             this.prijs = prijs;
         }

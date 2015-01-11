@@ -63,6 +63,20 @@ namespace Ontwikkelopdracht
             return db.GetLeden(alph);
         }
 
+        public List<Item> GetItems(string categorie)
+        {
+            List<Item> items = new List<Item>();
+            if (categorie == "dranken")
+            {
+                items = db.GetItems(1);
+            }
+            else if (categorie == "snacks")
+            {
+                items = db.GetItems(2);
+            }
+            return items;
+        }
+
         public List<Bestuur> GetBestuursLeden()
         {
             return db.GetBestuursLeden();

@@ -44,7 +44,7 @@ namespace Ontwikkelopdracht
 
         protected void btnPrijsLijst_Click(object sender, EventArgs e)
         {
-
+            Response.Redirect("Prijslijst.aspx");
         }
 
         protected void btnEvent_Click(object sender, EventArgs e)
