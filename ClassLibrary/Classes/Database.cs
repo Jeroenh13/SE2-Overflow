@@ -10,7 +10,7 @@ namespace Classes
     {
         #region DatabaseConnection
         OleDbConnection connection = new OleDbConnection();
-        private string ConnectionString = "Provider=OraOLEDB.Oracle; Data Source=//fhictora01.fhict.local:1521/fhictora; User Id=dbi305445;Password=PTVNpoHu6L";
+        private string ConnectionString = "Provider=OraOLEDB.Oracle; Data Source=//fhictora01.fhict.local:1521/fhictora; User Id=nope;Password=lol";
         /// <summary>
         /// Connects to the database
         /// </summary>       
